@@ -1,0 +1,56 @@
+// ManutencaoFormulario.js
+import React, { useState } from 'react';
+import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
+
+const ManutencaoFormulario = ({ navigation }) => {
+  const [descricao, setDescricao] = useState('');
+  const [equipamento, setEquipamento] = useState('');
+
+  const handleSubmit = () => {
+    alert(`Solicitação registrada para o equipamento: ${equipamento}`);
+    navigation.navigate('Home');
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Registrar Solicitação de Manutenção</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Equipamento"
+        value={equipamento}
+        onChangeText={setEquipamento}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Descrição do Problema"
+        value={descricao}
+        onChangeText={setDescricao}
+        multiline
+      />
+      <Button title="Registrar" onPress={handleSubmit} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 23,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  input: {
+    height: 40,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingLeft: 8,
+  },
+});
+
+export default ManutencaoFormulario;
