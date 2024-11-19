@@ -1,0 +1,29 @@
+// TelaPrincipal.js
+import React from 'react';
+import { View, Button, Text, StyleSheet } from 'react-native';
+
+const TelaPrincipal = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Sistema de Manutenção Intercity</Text>
+      <Button title="Registrar Solicitação de Manutenção" onPress={() => navigation.navigate('ManutencaoForm')} />
+      <Button title="Ver Solicitações de Manutenção" onPress={() => navigation.navigate('ManutencaoList')} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 30,
+    textAlign: 'center',
+  },
+});
+
+export default TelaPrincipal;
